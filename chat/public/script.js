@@ -16,6 +16,13 @@ if (messageForm != null) {
     socket.emit('send-chat-message', roomName, message)
     messageInput.value = ''
   })
+
+  document.getElementById(`pause-button`).addEventListener('click', e => {
+    const message = `want to pause`
+    appendMessage(`You want to pause`)
+    socket.emit('send-pause-message', roomName, message)
+  })
+
 }
 
 socket.on('room-created', room => {
